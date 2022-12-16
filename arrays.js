@@ -482,3 +482,52 @@ export default bubleSort();
 
 console.log(bubleSort([3, 10, 4, 3]));
 console.log(bubleSort([]));
+
+
+
+
+/* Реализуйте и экспортируйте функцию по умолчанию, которая принимает на вход строку, состоящую только из открывающих и закрывающих скобок разных типов, и проверяет, является ли эта строка сбалансированной. Открывающие и закрывающие скобки должны быть одного вида. Пустая строка (отсутствие скобок) считается сбалансированной. */
+
+const isBracketStructureBalanced = (string) => {
+  
+  let stack = [];
+  
+  for(let i = 0; i < string.length; i++) {
+    let x = string[i];
+    
+    if (x === '(' || x === '[' || x === '{' || x === '<') {
+      stack.push(x);
+      continue;
+    }
+    
+    if (stack.length === 0) {
+      return false;
+    }
+    
+    let check = stack.pop();;
+    switch (x) {
+      case ')':
+        if (check === '{' || check === '[' || check === '<') return false;
+        break;
+      case '}':
+        if (check === '(' || check === '[' || check === '<') return false;
+        break;
+      case ']':
+        if (check === '(' || check === '{' || check === '<') return false;
+        break;
+      case '>':
+        if (check === '(' || check === '{' || check === '[') return false;
+        break;  
+    }
+  }
+  
+  return (stack.length === 0);
+}
+
+export default isBracketStructureBalanced();
+
+console.log(isBracketStructureBalanced('<()>'));
+console.log(isBracketStructureBalanced('<([])>'));
+console.log(isBracketStructureBalanced('<()][>'));
+console.log(isBracketStructureBalanced('<([)>'));
+console.log(isBracketStructureBalanced(''));
