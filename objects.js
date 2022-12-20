@@ -100,3 +100,24 @@ export default countWords();
 
 console.log(countWords('one two three two ONE one wow'));
 console.log(countWords('another one sentence with strange Words words'));
+
+
+
+
+/* Реализуйте и экспортируйте функцию по умолчанию, которая формирует из переданного объекта другой объект, включающий только указанные свойства. Параметры:
+
+Исходный объект
+Массив имен свойств */
+const data = {
+  user: 'ubuntu',
+  cores: 4,
+  os: 'linux',
+};
+
+const pick = (obj, data) => _.pick(obj, data);
+
+export default pick();
+
+console.log(pick(data, ['none', 'cores']));
+console.log(pick(data, ['user', 'os']));
+console.log(pick(data, []));
