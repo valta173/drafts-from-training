@@ -202,3 +202,39 @@ export default fill();
 console.log(fill(company, ['name', 'state'], data));
 console.log(fill(company, ['name'], data));
 console.log(fill(company, [], data));
+
+
+
+
+
+/* Реализуйте и экспортируйте по умолчанию функцию, которая выполняет глубокое копирование объектов. */
+
+const data = {
+  key: 'value',
+  key2: {
+    key: 'innerValue',
+    innerKey: {
+      anotherKey: 'anotherValue',
+    },
+  },
+  key3: 'someValue',
+};
+
+const cloneDeep = (obj) => {
+  let newObj = Object.assign({}, );
+  for (let item in obj) {
+    if (_.isObject(obj[item])) {
+      newObj[item] = cloneDeep(obj[item]);
+      continue;
+    } 
+    newObj[item] = obj[item];
+  }
+  return newObj;
+}
+
+export default cloneDeep();
+
+const result = cloneDeep(data);
+
+console.log(result.key2 !== data.key2); // true
+console.log(result.key2.innerKey !== data.key2.innerKey); // true
