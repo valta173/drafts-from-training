@@ -238,3 +238,50 @@ const result = cloneDeep(data);
 
 console.log(result.key2 !== data.key2); // true
 console.log(result.key2.innerKey !== data.key2.innerKey); // true
+
+
+
+
+/* Реализуйте и экспортируйте по умолчанию функцию, которая создает объект компании и возвращает его. Для создания компании обязательно только одно свойство – имя компании. Остальные свойства добавляются только если они есть. Параметры:
+
+Имя
+Объект с дополнительными свойствами
+Также у компаний есть два свойства со значениями по умолчанию:
+
+state – moderating
+createdAt – текущая дата */
+
+const make = (name, list) => {
+  let result = {};
+  
+  let createdAt = new Date();
+  const dd = String(createdAt.getDate()).padStart(2, '0');
+  const mm = String(createdAt.getMonth() + 1).padStart(2, '0');
+  const yyyy = createdAt.getFullYear();
+  createdAt = mm + '/' + dd + '/' + yyyy;
+  
+  const state = 'moderating';
+  
+  for (let key in list) {
+    result[key] = list[key];
+  }
+  
+  return {name, state, ...result, createdAt};
+};
+
+export default make();
+
+console.log(make('Hexlet', {}));
+/* {
+   createdAt: "12/22/2022",
+   name: "Hexlet",
+   state: "moderating"
+   }*/
+
+console.log(make('Hexlet', { website: 'hexlet.io', state: 'published' }));
+/* {
+   createdAt: "12/22/2022",
+   name: "Hexlet",
+   state: "published",
+   website: "hexlet.io"
+   } */
