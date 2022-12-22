@@ -163,3 +163,42 @@ console.log(get(data, ['hosts', 1, 'name'])); // 'web2'
 console.log(get(data, ['hosts', 0])); // { name: 'web1' }
 console.log(get(data, ['hosts', 1, null])); // 3
 console.log(get(data, ['hosts', 1, 'active'])); // false
+
+
+
+
+/* Реализуйте и экспортируйте по умолчанию функцию, которая заполняет объект данными из другого объекта по разрешенному списку ключей. Параметры:
+
+Исходный объект
+Список ключей которые нужно заменить
+Данные, которые нужно сливать в исходный объект
+В случае, когда список ключей пустой, нужно сливать все данные полностью. */
+
+// Вызовы ниже нужно рассматривать как независимые
+
+const company = {
+  name: null,
+  state: 'moderating',
+};
+ 
+const data = {
+  name: 'Hexlet',
+  state: 'published',
+};
+
+const fill = (basicObj, pickData, data) => {
+  
+  let copyObj = {};
+  
+  for (let key in basicObj) {
+    copyObj[key] = basicObj[key];
+  }
+
+  return Object.assign(copyObj, _.pick(data, pickData));
+}
+
+export default fill();
+
+console.log(fill(company, ['name', 'state'], data));
+console.log(fill(company, ['name'], data));
+console.log(fill(company, [], data));
