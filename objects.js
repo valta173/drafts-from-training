@@ -221,7 +221,7 @@ const data = {
 };
 
 const cloneDeep = (obj) => {
-  let newObj = Object.assign({}, );
+  let newObj = {};
   for (let item in obj) {
     if (_.isObject(obj[item])) {
       newObj[item] = cloneDeep(obj[item]);
