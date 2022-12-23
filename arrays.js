@@ -8,8 +8,8 @@ export const getWeekends = (length = 'long') => {
   if (length === 'short') return ['sat', 'sun'];
 }
 
-console.log(getWeekends('short'));
-console.log(getWeekends());
+console.log(getWeekends('short')); // [ "sat", "sun" ]
+console.log(getWeekends()); // [ "saturday", "sunday" ]
 
 
 
@@ -26,9 +26,9 @@ export const swap = (arr) => {
   }
   return arr;
 }
-console.log(swap(['cat']));
-console.log(swap(['cat', 'dog']));
-console.log(swap(['cat', 'dog', 'mouse']));
+console.log(swap(['cat'])); // [ "cat" ]
+console.log(swap(['cat', 'dog'])); // [ "dog", "cat" ]
+console.log(swap(['cat', 'dog', 'mouse'])); // [ "mouse", "dog", "cat" ]
 
 
 
@@ -44,10 +44,10 @@ const cities = ['moscow', 'london', 'berlin', 'porto'];
 const getArrays = (arr, index, def = null) => (arr[index]) ? arr[index] : arr[index] = def;
 export default getArrays();
 
-console.log(getArrays(cities, 1));
-console.log(getArrays(cities, 4));
-console.log(getArrays(cities, 1, 'novosibirsk'));
-console.log(getArrays(cities, 10, 'novosibirsk'));
+console.log(getArrays(cities, 1)); // "london"
+console.log(getArrays(cities, 4)); // null
+console.log(getArrays(cities, 1, 'novosibirsk')); // "london"
+console.log(getArrays(cities, 10, 'novosibirsk')); // "novosibirsk"
 
 
 
@@ -64,9 +64,9 @@ const rename = (arr, prefix = 'Mr.') => {
 }
 export default rename;
 
-console.log(rename(names, 'Mr.'));
-console.log(rename(names, 'Mrs.'));
-console.log(rename(names));
+console.log(rename(names, 'Mr.')); // [ "Mr. john", "Mr. smith", "Mr. karl" ]
+console.log(rename(names, 'Mrs.')); // [ "Mrs. Mr. john", "Mrs. Mr. smith", "Mrs. Mr. karl" ]
+console.log(rename(names)); // [ "Mr. Mrs. Mr. john", "Mr. Mrs. Mr. smith", "Mr. Mrs. Mr. karl" ]
 
 
 
@@ -76,7 +76,7 @@ const names = ['john', 'smith', 'karl'];
 
 export const reverse = arr => arr.reverse();
 
-console.log(reverse(names));
+console.log(reverse(names)); // [ "karl", "smith", "john" ]
 
 // Решение этой задачи подразумевает самостоятельную реализацию функции без использования встроенного метода reverse(), ну и ладно:
 
@@ -92,8 +92,8 @@ export const reverse = (arr) => {
   return array;
 }
 
-console.log(reverse(names));
-console.log(reverse(cities));
+console.log(reverse(names)); // [ "karl", "smith", "john" ]
+console.log(reverse(cities)); // [ "berlin", "paris", "london", "moscow" ]
 
 
 
@@ -117,9 +117,9 @@ const calculateSumMulti3 = (arr) => {
 
 export default calculateSumMulti3();
 
-console.log(calculateSumMulti3(coll));
-console.log(calculateSumMulti3(coll1));
-console.log(calculateSumMulti3(coll2));
+console.log(calculateSumMulti3(coll)); // 0
+console.log(calculateSumMulti3(coll1)); // 48
+console.log(calculateSumMulti3(coll2)); // 27
 
 
 
@@ -142,18 +142,14 @@ const calculateAverage = (temperatures) => {
 
 export default calculateAverage();
 
-console.log(calculateAverage(temperatures));
-console.log(calculateAverage(temperatures1));
-console.log(calculateAverage(temperatures2));
+console.log(calculateAverage(temperatures)); // null
+console.log(calculateAverage(temperatures1)); // 38.5
+console.log(calculateAverage(temperatures2)); // 38
 
 
 
 
 /* Реализуйте функцию getSameParity, которая принимает на вход массив чисел и возвращает новый, состоящий из элементов, у которых такая же чётность, как и у первого элемента входного массива. Экспортируйте функцию по умолчанию */
-
-const temperatures = [];
-const temperatures1 = [37.5, 34, 39.3, 40, 38.7, 41.5];
-const temperatures2 = [36, 37.4, 39, 41, 36.6];
 
 const getSameParity = (arr) => {
   let result = [];
@@ -169,10 +165,10 @@ const getSameParity = (arr) => {
 
 export default getSameParity();
 
-console.log(getSameParity([]));
-console.log(getSameParity([1, 2, 3]));
-console.log(getSameParity([1, 2, 8]));
-console.log(getSameParity([2, 2, 8]));
+console.log(getSameParity([])); // [  ]
+console.log(getSameParity([1, 2, 3])); // [ 1, 3 ]
+console.log(getSameParity([1, 2, 8])); // [ 1 ]
+console.log(getSameParity([2, 2, 8])); // [ 2, 2, 8 ]
 
 
 
@@ -186,9 +182,9 @@ console.log(getSameParity([2, 2, 8]));
 Массив, содержащий купюры разных валют с различными номиналами
 Наименование валюты */
 
-const money1 = ['eur 10', 'usd 1', 'usd 10', 'rub 50', 'usd 5',];
-const money2 = ['eur 10', 'usd 1', 'eur 5', 'rub 100', 'eur 20', 'eur 100', 'rub 200',];
-const money3 = ['eur 10', 'rub 50', 'eur 5', 'rub 10', 'rub 10', 'eur 100', 'rub 200',];
+const money1 = ['eur 10', 'usd 1', 'usd 10', 'rub 50', 'usd 5',]; 
+const money2 = ['eur 10', 'usd 1', 'eur 5', 'rub 100', 'eur 20', 'eur 100', 'rub 200',]; 
+const money3 = ['eur 10', 'rub 50', 'eur 5', 'rub 10', 'rub 10', 'eur 100', 'rub 200',]; 
 
 // С управляющими инструкциями мне не очень нравится работать...
 
@@ -218,9 +214,9 @@ const getTotalAmount = (arr, currency) => {
 
 export default getTotalAmount();
 
-console.log(getTotalAmount(money1, 'usd'));
-console.log(getTotalAmount(money2, 'eur'));
-console.log(getTotalAmount(money3, 'rub'));
+console.log(getTotalAmount(money1, 'usd')); // 16
+console.log(getTotalAmount(money2, 'eur')); // 135
+console.log(getTotalAmount(money3, 'rub')); // 270
 
 
 
@@ -288,10 +284,10 @@ const getSuperSeriesWinner = (arr) => {
 
 export default getSuperSeriesWinner();
 
-console.log(getSuperSeriesWinner(scores1));
-console.log(getSuperSeriesWinner(scores2));
-console.log(getSuperSeriesWinner(scores3));
-console.log(getSuperSeriesWinner(scores4));
+console.log(getSuperSeriesWinner(scores1)); // "Canada"
+console.log(getSuperSeriesWinner(scores2)); // "Canada"
+console.log(getSuperSeriesWinner(scores3)); // "USSR"
+console.log(getSuperSeriesWinner(scores4)); // null
 
 
 
@@ -324,9 +320,9 @@ const buildDefinitionList = (arr) => {
 
 export default buildDefinitionList();
 
-console.log(buildDefinitionList(definitions));
-console.log(buildDefinitionList(definitions1));
-console.log(buildDefinitionList(definitions2));
+console.log(buildDefinitionList(definitions)); // "<dl><dt>definition1</dt><dd>description1</dd><dt>definition2</dt><dd>description2</dd></dl>"
+console.log(buildDefinitionList(definitions1)); // "<dl><dt>Блямба</dt><dd>Выпуклость, утолщения на поверхности чего-либо</dd><dt>Бобр</dt><dd>Животное из отряда грызунов</dd></dl>"
+console.log(buildDefinitionList(definitions2)); // ""
 
 
 
@@ -354,10 +350,10 @@ const makeCensored = (sentence, stopWords) => {
 
 export default makeCensored();
 
-console.log(makeCensored(sentence, ['die', 'play']));
-console.log(makeCensored(sentence2, ['?', 'chicken']));
+console.log(makeCensored(sentence, ['die', 'play'])); // "When you $#%! the game of thrones, you win or you $#%!"
+console.log(makeCensored(sentence2, ['?', 'chicken'])); // "$#%! chicken? chicken! $#%!"
 
-// Но что если стоп слов станет больше...?
+// Но что если стоп-слов станет больше...?
 
 const makeCensored = (sentence, stopWords) => {
   const separator = ' ';
@@ -391,10 +387,10 @@ const getSameCount = (arr1, arr2) => {
 
 export default getSameCount();
 
-console.log(getSameCount([1, 3, 2, 2], [3, 1, 1, 2, 5]));
-console.log(getSameCount([1, 4, 4], [4, 8, 4]));
-console.log(getSameCount([1, 10, 3], [10, 100, 35, 1]));
-console.log(getSameCount([], []));
+console.log(getSameCount([1, 3, 2, 2], [3, 1, 1, 2, 5])); // 3
+console.log(getSameCount([1, 4, 4], [4, 8, 4])); // 1
+console.log(getSameCount([1, 10, 3], [10, 100, 35, 1])); // 2
+console.log(getSameCount([], [])); // 0
 
 // Сначала всё усложнил и запутался)) Всё удалил и написал заново - работает!
 
@@ -419,10 +415,10 @@ const countUniqChars = (text) => {
 
 export default countUniqChars();
 
-console.log(countUniqChars('yyab'));
-console.log(countUniqChars('You know nothing Jon Snow'));
-console.log(countUniqChars(''));
-console.log(countUniqChars('111yya!'));
+console.log(countUniqChars('yyab')); // 3
+console.log(countUniqChars('You know nothing Jon Snow')); // 13
+console.log(countUniqChars('')); // 0
+console.log(countUniqChars('111yya!')); // 4
 
 
 
@@ -449,9 +445,9 @@ const bubleSort = (coll) => {
   return coll;
 }
 
-console.log(bubleSort([1, 5, 6, -4, 10]));
-console.log(bubleSort([124, 57, -10, 23, 60242, 1]));
-console.log(bubleSort([-3, 0, 52, -4, 0]));
+console.log(bubleSort([1, 5, 6, -4, 10])); // [ -4, 1, 5, 6, 10 ]
+console.log(bubleSort([124, 57, -10, 23, 60242, 1])); // [ -10, 1, 23, 57, 124, 60242 ]
+console.log(bubleSort([-3, 0, 52, -4, 0])); // [ -4, -3, 0, 0, 52 ]
 
 
 
@@ -481,8 +477,8 @@ const bubleSort = (coll) => {
 
 export default bubleSort();
 
-console.log(bubleSort([3, 10, 4, 3]));
-console.log(bubleSort([]));
+console.log(bubleSort([3, 10, 4, 3])); // [ 3, 3, 4, 10 ]
+console.log(bubleSort([])); // [  ]
 
 
 
@@ -527,11 +523,11 @@ const isBracketStructureBalanced = (string) => {
 
 export default isBracketStructureBalanced();
 
-console.log(isBracketStructureBalanced('<()>'));
-console.log(isBracketStructureBalanced('<([])>'));
-console.log(isBracketStructureBalanced('<()][>'));
-console.log(isBracketStructureBalanced('<([)>'));
-console.log(isBracketStructureBalanced(''));
+console.log(isBracketStructureBalanced('<()>')); // true
+console.log(isBracketStructureBalanced('<([])>')); // true
+console.log(isBracketStructureBalanced('<()][>')); // false
+console.log(isBracketStructureBalanced('<([)>')); // false
+console.log(isBracketStructureBalanced('')); // true
 
 
 
@@ -560,9 +556,9 @@ const getIntersectionOfSortedArrays = (arr1, arr2) => {
   return result;
 }
 
-console.log(getIntersectionOfSortedArrays([10, 11, 24], [10, 13, 14, 18, 24, 30]));
-console.log(getIntersectionOfSortedArrays([10, 11, 24], [-2, 3, 4]));
-console.log(getIntersectionOfSortedArrays([], [2]));
+console.log(getIntersectionOfSortedArrays([10, 11, 24], [10, 13, 14, 18, 24, 30])); // [ 10, 24 ]
+console.log(getIntersectionOfSortedArrays([10, 11, 24], [-2, 3, 4])); // [  ]
+console.log(getIntersectionOfSortedArrays([], [2])); // [  ]
 
 
 
@@ -609,9 +605,9 @@ export const getTheNearestLocation = (locations, currentPoint) => {
   return result;
 }
 
-console.log(getTheNearestLocation(locations, [10, 10]));
-console.log(getTheNearestLocation(locations, [1, 1]));
-console.log(getTheNearestLocation(locations, [5, 5]));
+console.log(getTheNearestLocation(locations, [10, 10])); // [ "Park", [10, 5] ]
+console.log(getTheNearestLocation(locations, [1, 1])); // [ "Sea", [1, 3] ]
+console.log(getTheNearestLocation(locations, [5, 5])); // [ "Museum", [8, 4] ]
 
 
 
@@ -629,10 +625,10 @@ export const getMax = arr => {
   return max;
 }
 
-console.log(getMax([1, 10, 8]));
-console.log(getMax([25, 10, 8]));
-console.log(getMax([1, 10, 53]));
-console.log(getMax([1, 143, 8]));
+console.log(getMax([1, 10, 8])); // 10
+console.log(getMax([25, 10, 8])); // 25
+console.log(getMax([1, 10, 53])); // 53
+console.log(getMax([1, 143, 8])); // 143
 
 
 
@@ -652,6 +648,6 @@ export const flatten = arr => {
   return result;
 }
 
-console.log(flatten([[1], [3, 2], 9]));
-console.log(flatten([]));
-console.log(flatten([1, [[2], [3]], [9]]));
+console.log(flatten([[1], [3, 2], 9])); // [ 1, 3, 2, 9 ]
+console.log(flatten([])); // [  ]
+console.log(flatten([1, [[2], [3]], [9]])); // [ 1, [2], [3], 9 ]
