@@ -30,6 +30,10 @@ export default normalize();
 
 normalize(lesson);
 console.log(lesson);
+/* {
+    description: "как удивить колег",
+    name: "Деструктуризация"
+   } */
 
 
 
@@ -54,8 +58,8 @@ const company2 = { name: 'CodeBasics', state: 'published', website: 'https://cod
 const company3 = { name: 'Hexlet', state: 'published', website: 'https://hexlet.io' };
 const company4 = { name: 'Hexlet', state: 'published', website: 'https://hexlet.io' };
 
-console.log(is(company1, company2));
-console.log(is(company3, company4));
+console.log(is(company1, company2)); // false
+console.log(is(company3, company4)); // true
 
 
 
@@ -74,8 +78,20 @@ const getDomainInfo = (domain) => {
 export default getDomainInfo();
 
 console.log(getDomainInfo('yandex.ru'));
+/* {
+    name: "yandex.ru",
+    scheme: "http"
+   } */
 console.log(getDomainInfo('https://hexlet.io'));
+/* {
+    name: "hexlet.io",
+    scheme: "https"
+   } */
 console.log(getDomainInfo('http://google.com'));
+/* {
+    name: "google.com",
+    scheme: "http"
+   } */
 
 
 
@@ -99,7 +115,21 @@ const countWords = string => {
 export default countWords();
 
 console.log(countWords('one two three two ONE one wow'));
+/* {
+   one: 3,
+   three: 1,
+   two: 2,
+   wow: 1
+   } */
 console.log(countWords('another one sentence with strange Words words'));
+/* {
+    another: 1,
+    one: 1,
+    sentence: 1,
+    strange: 1,
+    with: 1,
+    words: 2
+   } */
 
 
 
@@ -118,9 +148,9 @@ const pick = (obj, data) => _.pick(obj, data);
 
 export default pick();
 
-console.log(pick(data, ['none', 'cores']));
-console.log(pick(data, ['user', 'os']));
-console.log(pick(data, []));
+console.log(pick(data, ['none', 'cores'])); // { cores: 4 }
+console.log(pick(data, ['user', 'os'])); // { os: "linux", user: "ubuntu" }
+console.log(pick(data, [])); // { ... }
 
 
 
@@ -199,9 +229,9 @@ const fill = (basicObj, pickData, data) => {
 
 export default fill();
 
-console.log(fill(company, ['name', 'state'], data));
-console.log(fill(company, ['name'], data));
-console.log(fill(company, [], data));
+console.log(fill(company, ['name', 'state'], data)); // { name: "Hexlet", state: "published" }
+console.log(fill(company, ['name'], data)); // { name: "Hexlet", state: "moderating" }
+console.log(fill(company, [], data)); // { name: null, state: "moderating" }
 
 
 
