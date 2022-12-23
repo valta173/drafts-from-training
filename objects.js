@@ -315,3 +315,32 @@ console.log(make('Hexlet', { website: 'hexlet.io', state: 'published' }));
    state: "published",
    website: "hexlet.io"
    } */
+
+
+
+
+/* Реализуйте и экспортируйте по умолчанию функцию, которая принимает на вход список пользователей, извлекает их имена, сортирует в алфавитном порядке и возвращает отсортированный список имен. */
+
+const users = [
+  { name: 'Bronn', gender: 'male', birthday: '1973-03-23' },
+  { name: 'Reigar', gender: 'male', birthday: '1973-11-03' },
+  { name: 'Eiegon', gender: 'male', birthday: '1963-11-03' },
+  { name: 'Sansa', gender: 'female', birthday: '2012-11-03' },
+];
+
+const getSortedNames = ( arr ) => {
+  let result = [];
+  
+  for ( let i = 0; i < arr.length; i++ ) {
+    for ( let item in arr[i] ) {
+      const { name: nameUser } = arr[i];
+      if ( !result.includes(nameUser) ) result.push(nameUser);
+    }
+  }
+    
+  return result.sort();
+}
+
+export default getSortedNames();
+
+console.log(getSortedNames(users)); // ["Bronn", "Eiegon", "Reigar", "Sansa"]
